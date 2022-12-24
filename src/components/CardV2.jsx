@@ -14,6 +14,11 @@ class CardV2 extends React.Component {
     }
 }
 
+CardV2.defaultProps = {
+    title: null,
+    text: null,
+};
+
 CardV2.propTypes = {
     title: PropTypes.string,
     text: PropTypes.string,

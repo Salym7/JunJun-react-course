@@ -12,8 +12,6 @@ class Card extends React.Component {
             </div>
         );
     }
-
-
 }
 
 export default Card;

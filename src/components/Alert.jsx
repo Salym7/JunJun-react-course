@@ -7,17 +7,7 @@ class Alert extends Component {
         const {type, text} = this.props;
 
         const alertClass = cn(
-            'alert' ,
-            {
-                'alert-primary' : type === 'primary',
-                'alert-secondary' : type === 'secondary',
-                'alert-success' : type === 'success',
-                'alert-danger' : type === 'danger',
-                'alert-warning' : type === 'warning',
-                'alert-info' : type === 'info',
-                'alert-light' : type === 'light',
-                'alert-dark' : type === 'dark',
-            }
+            'alert' , `alert-${type}`
         )
 
         return (
@@ -31,6 +21,7 @@ class Alert extends Component {
 
 Alert.propTypes = {
     text: PropTypes.string,
+    type: PropTypes.string,
 };
 
 export default Alert;

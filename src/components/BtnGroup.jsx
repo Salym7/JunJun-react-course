@@ -51,6 +51,4 @@ class BtnGroup extends Component {
 
 }
 
-// BtnGroup.propTypes = {};
-
 export default BtnGroup;

@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 class ListGroup extends Component {
 
     renderList(kids) {
-        return kids.map(item => {
-            return (
-                <li key={item.toString()} className="list-group-item bg-info">{item}</li>
-            )
-        });
+        return kids.map(item => <li key={item.toString()} className="list-group-item bg-info">{item}</li>);
     }
 
     render() {
@@ -23,7 +19,7 @@ class ListGroup extends Component {
 }
 
 ListGroup.propTypes = {
-    children : PropTypes.array
+    children: PropTypes.array
 };
 
 export default ListGroup;

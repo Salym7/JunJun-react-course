@@ -10,31 +10,34 @@ class BtnGroup extends Component {
         }
     }
 
-    onActiveLeft = () => {
-        this.setState(() => ({
-            activeLeft: true,
-            activeRight: false
-        }))
-        console.log(this);
+    onActive = (side) => {
+        if (side === 'left') {
+            this.setState(() => ({
+                activeLeft: true,
+                activeRight: false
+            }))
+        }
+        if (side === 'right') {
+            this.setState(() => ({
+                activeLeft: false,
+                activeRight: true
+            }))
+        }
     }
-    onActiveRight = () => {
-        this.setState(() => ({
-            activeLeft: false,
-            activeRight: true
-        }))
-        console.log(this);
-    }
+
+    onActiveLeft = () => this.onActive('left')
+    onActiveRight = () => this.onActive('right')
 
     render() {
         const {activeLeft, activeRight} = this.state
         const classNamesLeft = cn(
-            'btn btn-outline-primary' , {
-                'active' : activeLeft
+            'btn btn-outline-primary', {
+                'active': activeLeft
             }
         )
         const classNamesRight = cn(
-            'btn btn-outline-primary' , {
-                'active' : activeRight
+            'btn btn-outline-primary', {
+                'active': activeRight
             }
         )
         return (

@@ -25,7 +25,7 @@ class DefinitionsList extends React.Component {
 }
 
 DefinitionsList.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.array,
 }
 
 export default DefinitionsList;

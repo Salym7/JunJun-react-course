@@ -6,6 +6,7 @@ import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup";
 import BtnGroup from "./components/BtnGroup";
 import Collapse from "./components/Collapse";
+import MyForm from "./components/MyForm";
 
 function App() {
     const definitions = [
@@ -31,6 +32,7 @@ function App() {
             </ListGroup>
             <BtnGroup/>
             <Collapse text={text} opened={true}/>
+            <MyForm/>
         </div>
     );
 }

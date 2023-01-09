@@ -7,12 +7,22 @@ import ListGroup from "./components/ListGroup";
 import BtnGroup from "./components/BtnGroup";
 import Collapse from "./components/Collapse";
 import MyForm from "./components/MyForm";
+import Carousel from "./components/Carousel";
+import slide1 from "./assets/slide1.jpg"
+import slide2 from "./assets/slide2.jpg"
+import slide3 from "./assets/slide3.jpg"
 
+        
 function App() {
     const definitions = [
         {dt: 'one', dd: 'two', id: 1},
         {dt: 'another term', dd: 'another description', id: 2},
     ];
+    const images = [
+        {slide1},
+        {slide2},
+        {slide3},
+    ]
     const text = 'collapse me, here a lot of text';
 
     return (
@@ -33,6 +43,7 @@ function App() {
             <BtnGroup/>
             <Collapse text={text} opened={true}/>
             <MyForm/>
+            <Carousel images={images}/>
         </div>
     );
 }

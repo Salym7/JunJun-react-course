@@ -4,34 +4,41 @@ class MyForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data: {
+                email: '',
+                password: '',
+                address: '',
+                city: '',
+                country: '',
+                acceptRules: false,
+            },
             isForm: true,
-            email: '',
-            password: '',
-            address: '',
-            city: '',
-            country: '',
-            acceptRules: false,
+
         }
     };
 
     handleChangeCheck = () => {
-        this.setState({acceptRules: !this.state.acceptRules})
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                acceptRules: !this.state.data.acceptRules
+            }
+        }))
     };
-    handleChangeEmail = (e) => {
-        this.setState({email: e.target.value});
+    handleChange = (e, type) => {
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                [type]: e.target.value
+            }
+        }))
     }
-    handleChangePassword = (e) => {
-        this.setState({password: e.target.value});
+
+    handlerChangeForm = (e, type) => {
+        if (type === 'acceptRules') return this.handleChangeCheck(e)
+        return this.handleChange(e, type)
     }
-    handleChangeAddress = (e) => {
-        this.setState({address: e.target.value});
-    }
-    handleChangeCity = (e) => {
-        this.setState({city: e.target.value});
-    }
-    handleChangeCountry = (e) => {
-        this.setState({country: e.target.value});
-    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.setState({isForm: false})
@@ -41,7 +48,14 @@ class MyForm extends Component {
     }
 
     render() {
-        const {isForm, email, password, address, city, country, acceptRules} = this.state
+        const {isForm, data} = this.state
+        const creatTable = Object.entries(data).map(item => (
+            <tr key={item.toString()}>
+                <td>{item[0]}</td>
+                <td>{item[1].toString()}</td>
+            </tr>
+        ))
+
 
         return (
             <>
@@ -50,34 +64,35 @@ class MyForm extends Component {
                     <div className="col-md-6 mb-3">
                         <label htmlFor="email" className="col-form-label">Email</label>
                         <input type="email" name="email" className="form-control" id="email" placeholder="Email"
-                               onChange={this.handleChangeEmail}
-                               value={email}/>
+                               onChange={(e) => this.handlerChangeForm(e, 'email')}
+                               value={data.email}/>
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="password" className="col-form-label">Password</label>
                         <input type="password" name="password" className="form-control" id="password"
                                placeholder="Password"
-                               onChange={this.handleChangePassword}
-                               value={password}/>
+                               onChange={(e) => this.handlerChangeForm(e, 'password')}
+                               value={data.password}/>
                     </div>
                     <div className="col-md-6 mb-3">
                         <label htmlFor="address" className="col-form-label">Address</label>
                         <textarea className="form-control" name="address" id="address"
                                   placeholder="1234 Main St"
-                                  onChange={this.handleChangeAddress}
-                                  value={address}>
+                                  onChange={(e) => this.handlerChangeForm(e, 'address')}
+                                  value={data.address}>
                     </textarea>
                     </div>
                     <div className="col-md-6 mb-3">
                         <label htmlFor="city" className="col-form-label">City</label>
                         <input type="text" className="form-control" name="city" id="city"
-                               onChange={this.handleChangeCity}
-                               value={city}/>
+                               onChange={(e) => this.handlerChangeForm(e, 'city')}
+                               value={data.city}/>
                     </div>
                     <div className="col-md-6 mb-3">
                         <label htmlFor="country" className="col-form-label">Country</label>
                         <select id="country" name="country" className="form-control"
-                                value={country} onChange={this.handleChangeCountry}>
+                                value={data.country}
+                                onChange={(e) => this.handlerChangeForm(e, 'country')}>
                             <option value=''>Choose</option>
                             <option value="argentina">Argentina</option>
                             <option value="ukraine">Ukraine</option>
@@ -87,8 +102,8 @@ class MyForm extends Component {
                     <div className="col-md-6 mb-3">
                         <div className="form-check">
                             <label className="form-check-label" htmlFor="rules">
-                                <input name="formCheck" type="checkbox" checked={acceptRules}
-                                       onChange={this.handleChangeCheck}/> Accept Rules
+                                <input name="formCheck" type="checkbox" checked={data.acceptRules}
+                                       onChange={(e) => this.handlerChangeForm(e, 'acceptRules')}/> Accept Rules
                             </label>
                         </div>
                     </div>
@@ -100,30 +115,7 @@ class MyForm extends Component {
                     </button>
                     <table className="table">
                         <tbody>
-                        <tr>
-                            <td>acceptRules</td>
-                            <td>{acceptRules ? 'accepted' : 'not'}</td>
-                        </tr>
-                        <tr>
-                            <td>address</td>
-                            <td>{address}</td>
-                        </tr>
-                        <tr>
-                            <td>city</td>
-                            <td>{city}</td>
-                        </tr>
-                        <tr>
-                            <td>country</td>
-                            <td>{country}</td>
-                        </tr>
-                        <tr>
-                            <td>email</td>
-                            <td>{email}</td>
-                        </tr>
-                        <tr>
-                            <td>password</td>
-                            <td>{password}</td>
-                        </tr>
+                        {creatTable}
                         </tbody>
                     </table>
                 </div>

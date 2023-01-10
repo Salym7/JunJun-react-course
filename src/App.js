@@ -8,20 +8,19 @@ import BtnGroup from "./components/BtnGroup";
 import Collapse from "./components/Collapse";
 import MyForm from "./components/MyForm";
 import Carousel from "./components/Carousel";
-import slide1 from "./assets/slide1.jpg"
-import slide2 from "./assets/slide2.jpg"
-import slide3 from "./assets/slide3.jpg"
 
-        
+
 function App() {
     const definitions = [
         {dt: 'one', dd: 'two', id: 1},
         {dt: 'another term', dd: 'another description', id: 2},
     ];
     const images = [
-        {slide1},
-        {slide2},
-        {slide3},
+        'https://jssors8.azureedge.net/demos/image-slider/img/px-beach-daylight-fun-1430675-image.jpg',
+        'https://www.w3schools.com/howto/img_nature_wide.jpg',
+        'https://www.w3schools.com/w3css/img_mountains_wide.jpg',
+        'https://jssors8.azureedge.net/demos/image-slider/img/px-fun-man-person-2361598-image.jpg',
+        'http://wowslider.com/sliders/demo-18/data1/images/hongkong1081704.jpg',
     ]
     const text = 'collapse me, here a lot of text';
 

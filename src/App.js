@@ -1,8 +1,8 @@
-import Card from "./components/Card";
-import CardV2 from "./components/CardV2";
-import DefinitionsList from "./components/DefinitionsList";
-import Progress from "./components/Progress";
-import Alert from "./components/Alert";
+// import Card from "./components/Card";
+// import CardV2 from "./components/CardV2";
+// import DefinitionsList from "./components/DefinitionsList";
+// import Progress from "./components/Progress";
+// import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup";
 import BtnGroup from "./components/BtnGroup";
 import Collapse from "./components/Collapse";
@@ -11,14 +11,14 @@ import Carousel from "./components/Carousel";
 import Component1 from "./components/Component1";
 
 import './style.css';
-
+import TodoBox from "./components/TodoBox";
 
 
 function App() {
-    const definitions = [
-        {dt: 'one', dd: 'two', id: 1},
-        {dt: 'another term', dd: 'another description', id: 2},
-    ];
+    // const definitions = [
+    //     {dt: 'one', dd: 'two', id: 1},
+    //     {dt: 'another term', dd: 'another description', id: 2},
+    // ];
     const images = [
         'https://jssors8.azureedge.net/demos/image-slider/img/px-beach-daylight-fun-1430675-image.jpg',
         'https://www.w3schools.com/howto/img_nature_wide.jpg',
@@ -30,15 +30,15 @@ function App() {
 
     return (
         <div className="App">
-            <Card/>
-            <CardV2 title={'Only TITLE'}/>
-            <CardV2 text={'Only Text'}/>
-            <CardV2 title={'This is TITLE'} text={'This is Text'}/>
-            <DefinitionsList data={definitions}/>
-            <Progress percentage={40}/>
-            <Progress percentage={100}/>
-            <Alert type="primary" text="what is love?"/>
-            <Alert type="secondary" text="second what is love?"/>
+            {/*<Card/>*/}
+            {/*<CardV2 title={'Only TITLE'}/>*/}
+            {/*<CardV2 text={'Only Text'}/>*/}
+            {/*<CardV2 title={'This is TITLE'} text={'This is Text'}/>*/}
+            {/*<DefinitionsList data={definitions}/>*/}
+            {/*<Progress percentage={40}/>*/}
+            {/*<Progress percentage={100}/>*/}
+            {/*<Alert type="primary" text="what is love?"/>*/}
+            {/*<Alert type="secondary" text="second what is love?"/>*/}
             <ListGroup>
                 <p>one</p>
                 <p>two</p>
@@ -48,6 +48,7 @@ function App() {
             <MyForm/>
             <Carousel images={images}/>
             <Component1/>
+            <TodoBox/>
         </div>
     );
 }

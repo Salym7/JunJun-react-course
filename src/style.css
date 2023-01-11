@@ -1,0 +1,8 @@
+.carousel__img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+.component__space {
+    min-height: 300px;
+}

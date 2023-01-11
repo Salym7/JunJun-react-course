@@ -8,6 +8,10 @@ import BtnGroup from "./components/BtnGroup";
 import Collapse from "./components/Collapse";
 import MyForm from "./components/MyForm";
 import Carousel from "./components/Carousel";
+import Component1 from "./components/Component1";
+
+import './style.css';
+
 
 
 function App() {
@@ -43,6 +47,7 @@ function App() {
             <Collapse text={text} opened={true}/>
             <MyForm/>
             <Carousel images={images}/>
+            <Component1/>
         </div>
     );
 }

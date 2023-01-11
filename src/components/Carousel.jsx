@@ -39,7 +39,9 @@ class Carousel extends Component {
                 })
                 return (
                     <div className={clazz} key={index}>
-                        <img className={'w-100'} src={item} alt={'slide'}/>
+                        <img className={'carousel__img'}
+                             src={item}
+                             alt={'slide'}/>
                     </div>
                 )
             }

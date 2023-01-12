@@ -6,14 +6,21 @@ class Carousel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            indexImg: 2,
+            indexImg: 0,
         }
     };
+
+    interval = () => {
+        setInterval(this.nextImg, 5000);
+    }
+    componentDidMount() {
+        this.interval()
+    }
 
     prevImg = () => {
         console.log(this.props.images.length);
         if (this.state.indexImg < 1) {
-            this.setState({indexImg: this.props.images.length - 2})
+            this.setState({indexImg: this.props.images.length - 1})
         } else {
             this.setState({indexImg: this.state.indexImg - 1})
         }

@@ -9,6 +9,7 @@ import Collapse from "./components/Collapse";
 import MyForm from "./components/MyForm";
 import Carousel from "./components/Carousel";
 import Component1 from "./components/Component1";
+import Card from "./components/Card/Card";
 
 import './style.css';
 import TodoBox from "./components/TodoBox";
@@ -49,6 +50,12 @@ function App() {
             <Carousel images={images}/>
             <Component1/>
             <TodoBox/>
+            <Card>
+                <Card.Body>
+                    <Card.Title>Title</Card.Title>
+                    <Card.Text>Text</Card.Text>
+                </Card.Body>
+            </Card>
         </div>
     );
 }

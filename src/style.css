@@ -4,5 +4,8 @@
     object-fit: cover;
 }
 .component__space {
-    min-height: 300px;
+    min-height: 200px;
+}
+.bg-modal-component {
+    background: rgba(201, 23, 23, 0.4);
 }

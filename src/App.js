@@ -3,6 +3,8 @@
 // import DefinitionsList from "./components/DefinitionsList";
 // import Progress from "./components/Progress";
 // import Alert from "./components/Alert";
+
+import Container from "./components/Container";
 import ListGroup from "./components/ListGroup";
 import BtnGroup from "./components/BtnGroup";
 import Collapse from "./components/Collapse";
@@ -10,6 +12,7 @@ import MyForm from "./components/MyForm";
 import Carousel from "./components/Carousel";
 import Component1 from "./components/Component1";
 import Card from "./components/Card/Card";
+import Modal from "./components/Modal/ComponentModal";
 
 import './style.css';
 import TodoBox from "./components/TodoBox";
@@ -31,31 +34,34 @@ function App() {
 
     return (
         <div className="App">
-            {/*<Card/>*/}
-            {/*<CardV2 title={'Only TITLE'}/>*/}
-            {/*<CardV2 text={'Only Text'}/>*/}
-            {/*<CardV2 title={'This is TITLE'} text={'This is Text'}/>*/}
-            {/*<DefinitionsList data={definitions}/>*/}
-            {/*<Progress percentage={40}/>*/}
-            {/*<Progress percentage={100}/>*/}
-            {/*<Alert type="primary" text="what is love?"/>*/}
-            {/*<Alert type="secondary" text="second what is love?"/>*/}
-            <ListGroup>
-                <p>one</p>
-                <p>two</p>
-            </ListGroup>
-            <BtnGroup/>
-            <Collapse text={text} opened={true}/>
-            <MyForm/>
-            <Carousel images={images}/>
-            <Component1/>
-            <TodoBox/>
-            <Card>
-                <Card.Body>
-                    <Card.Title>Title</Card.Title>
-                    <Card.Text>Text</Card.Text>
-                </Card.Body>
-            </Card>
+            <Container>
+                {/*<Card/>*/}
+                {/*<CardV2 title={'Only TITLE'}/>*/}
+                {/*<CardV2 text={'Only Text'}/>*/}
+                {/*<CardV2 title={'This is TITLE'} text={'This is Text'}/>*/}
+                {/*<DefinitionsList data={definitions}/>*/}
+                {/*<Progress percentage={40}/>*/}
+                {/*<Progress percentage={100}/>*/}
+                {/*<Alert type="primary" text="what is love?"/>*/}
+                {/*<Alert type="secondary" text="second what is love?"/>*/}
+                <ListGroup>
+                    <p>one</p>
+                    <p>two</p>
+                </ListGroup>
+                <BtnGroup/>
+                <Collapse text={text} opened={true}/>
+                <MyForm/>
+                <Carousel images={images}/>
+                <Component1/>
+                <TodoBox/>
+                <Card>
+                    <Card.Body>
+                        <Card.Title>Title</Card.Title>
+                        <Card.Text>Text</Card.Text>
+                    </Card.Body>
+                </Card>
+                <Modal/>
+            </Container>
         </div>
     );
 }

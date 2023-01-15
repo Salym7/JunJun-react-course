@@ -6,30 +6,55 @@ class Component1 extends Component {
         this.state = {
             data: [],
             current: 0,
-            currentId: 1,
+            currentId: 0,
         }
     }
 
     minusCurrent = () => {
-        this.setState(prevState => ({
-            current: this.state.current - 1,
-            currentId: this.state.currentId + 1,
+        this.setState((state) => ({
+            current: state.current - 1,
+            currentId: state.currentId + 1,
+        }))
+        this.setState((state) => ({
             data: [
-                {value: this.state.current - 1, id: this.state.currentId},
-                ...prevState.data,
+                {value: state.current, id: state.currentId},
+                ...state.data,
             ]
         }))
     }
     plusCurrent = () => {
-        this.setState(prevState => ({
+        this.setState(() => ({
             current: this.state.current + 1,
             currentId: this.state.currentId + 1,
+        }))
+        this.setState((state) => ({
             data: [
-                {value: this.state.current + 1, id: this.state.currentId},
-                ...prevState.data,
+                {value: state.current, id: state.currentId},
+                ...state.data,
             ]
         }))
     }
+
+    // minusCurrent = () => {
+    //     this.setState(prevState => ({
+    //         current: this.state.current - 1,
+    //         currentId: this.state.currentId + 1,
+    //         data: [
+    //             {value: this.state.current - 1, id: this.state.currentId},
+    //             ...prevState.data,
+    //         ]
+    //     }))
+    // }
+    // plusCurrent = () => {
+    //     this.setState(prevState => ({
+    //         current: this.state.current + 1,
+    //         currentId: this.state.currentId + 1,
+    //         data: [
+    //             {value: this.state.current + 1, id: this.state.currentId},
+    //             ...prevState.data,
+    //         ]
+    //     }))
+    // }
 
     onHandle = (type) => () => {
         if (type === "plus") return this.plusCurrent();

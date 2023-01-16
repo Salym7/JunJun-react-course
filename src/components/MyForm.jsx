@@ -10,33 +10,30 @@ class MyForm extends Component {
                 address: '',
                 city: '',
                 country: '',
-                acceptRules: false,
+                formCheck: false,
             },
             isForm: true,
-
         }
     };
 
-    handleChangeCheck = () => {
-        this.setState(prevState => ({
-            data: {
-                ...prevState.data,
-                acceptRules: !this.state.data.acceptRules
-            }
-        }))
-    };
-    handleChange = (e, type) => {
-        this.setState(prevState => ({
-            data: {
-                ...prevState.data,
-                [type]: e.target.value
-            }
-        }))
-    }
 
-    handlerChangeForm = (e, type) => {
-        if (type === 'acceptRules') return this.handleChangeCheck(e)
-        return this.handleChange(e, type)
+    handlerChangeInput = (e) => {
+        const {name, value} = e.target
+        if (name === 'formCheck') {
+            this.setState(prevState => ({
+                data: {
+                    ...prevState.data,
+                    [name]: !this.state.data.formCheck
+                }
+            }))
+        }
+
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                [name]: value
+            }
+        }))
     }
 
     handleSubmit = (e) => {
@@ -56,7 +53,6 @@ class MyForm extends Component {
             </tr>
         ))
 
-
         return (
             <>
                 <form name="myForm" onSubmit={this.handleSubmit}
@@ -64,35 +60,35 @@ class MyForm extends Component {
                     <div className="col-md-6 mb-3">
                         <label htmlFor="email" className="col-form-label">Email</label>
                         <input type="email" name="email" className="form-control" id="email" placeholder="Email"
-                               onChange={(e) => this.handlerChangeForm(e, 'email')}
+                               onChange={this.handlerChangeInput}
                                value={data.email}/>
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="password" className="col-form-label">Password</label>
                         <input type="password" name="password" className="form-control" id="password"
                                placeholder="Password"
-                               onChange={(e) => this.handlerChangeForm(e, 'password')}
+                               onChange={this.handlerChangeInput}
                                value={data.password}/>
                     </div>
                     <div className="col-md-6 mb-3">
                         <label htmlFor="address" className="col-form-label">Address</label>
                         <textarea className="form-control" name="address" id="address"
                                   placeholder="1234 Main St"
-                                  onChange={(e) => this.handlerChangeForm(e, 'address')}
+                                  onChange={this.handlerChangeInput}
                                   value={data.address}>
                     </textarea>
                     </div>
                     <div className="col-md-6 mb-3">
                         <label htmlFor="city" className="col-form-label">City</label>
                         <input type="text" className="form-control" name="city" id="city"
-                               onChange={(e) => this.handlerChangeForm(e, 'city')}
+                               onChange={this.handlerChangeInput}
                                value={data.city}/>
                     </div>
                     <div className="col-md-6 mb-3">
                         <label htmlFor="country" className="col-form-label">Country</label>
                         <select id="country" name="country" className="form-control"
                                 value={data.country}
-                                onChange={(e) => this.handlerChangeForm(e, 'country')}>
+                                onChange={this.handlerChangeInput}>
                             <option value=''>Choose</option>
                             <option value="argentina">Argentina</option>
                             <option value="ukraine">Ukraine</option>
@@ -102,8 +98,8 @@ class MyForm extends Component {
                     <div className="col-md-6 mb-3">
                         <div className="form-check">
                             <label className="form-check-label" htmlFor="rules">
-                                <input name="formCheck" type="checkbox" checked={data.acceptRules}
-                                       onChange={(e) => this.handlerChangeForm(e, 'acceptRules')}/> Accept Rules
+                                <input name="formCheck" type="checkbox" checked={data.formCheck}
+                                       onChange={this.handlerChangeInput}/> Accept Rules
                             </label>
                         </div>
                     </div>

@@ -28,6 +28,7 @@ class TodoBox extends Component {
             currentId: this.state.currentId + 1,
             note: '',
         }))
+
     }
 
     onValueChange = (e) => {
@@ -58,7 +59,7 @@ class TodoBox extends Component {
                     <form className="d-flex"
                           onSubmit={this.onSubmit}>
                         <div className="me-3">
-                            <input type="text" value={this.state.name} required="" className="form-control"
+                            <input type="text" value={this.state.note} required="" className="form-control"
                                    placeholder="I am going..."
                                    onChange={this.onValueChange}/>
                         </div>
@@ -66,8 +67,6 @@ class TodoBox extends Component {
                     </form>
                 </div>
                 {renderList}
-
-
             </div>
         );
     }

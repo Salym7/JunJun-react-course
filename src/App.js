@@ -13,6 +13,7 @@ import Carousel from "./components/Carousel";
 import Component1 from "./components/Component1";
 import Card from "./components/Card/Card";
 import Modal from "./components/Modal/ComponentModal";
+import PostCatalog from "./components/PostCatalog";
 
 import './style.css';
 import TodoBox from "./components/TodoBox";
@@ -44,23 +45,24 @@ function App() {
                 {/*<Progress percentage={100}/>*/}
                 {/*<Alert type="primary" text="what is love?"/>*/}
                 {/*<Alert type="secondary" text="second what is love?"/>*/}
-                <ListGroup>
-                    <p>one</p>
-                    <p>two</p>
-                </ListGroup>
-                <BtnGroup/>
-                <Collapse text={text} opened={true}/>
-                <MyForm/>
-                <Carousel images={images}/>
-                <Component1/>
-                <TodoBox/>
-                <Card>
-                    <Card.Body>
-                        <Card.Title>Title</Card.Title>
-                        <Card.Text>Text</Card.Text>
-                    </Card.Body>
-                </Card>
-                <Modal/>
+                {/*<ListGroup>*/}
+                {/*    <p>one</p>*/}
+                {/*    <p>two</p>*/}
+                {/*</ListGroup>*/}
+                {/*<BtnGroup/>*/}
+                {/*<Collapse text={text} opened={true}/>*/}
+                {/*<MyForm/>*/}
+                {/*<Carousel images={images}/>*/}
+                {/*<Component1/>*/}
+                {/*<TodoBox/>*/}
+                <PostCatalog/>
+                {/*<Card>*/}
+                {/*    <Card.Body>*/}
+                {/*        <Card.Title>Title</Card.Title>*/}
+                {/*        <Card.Text>Text</Card.Text>*/}
+                {/*    </Card.Body>*/}
+                {/*</Card>*/}
+                {/*<Modal/>*/}
             </Container>
         </div>
     );
